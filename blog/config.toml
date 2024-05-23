@@ -61,34 +61,28 @@ enableEmoji = true
 [menu]
   # This displays buttons in the navbar to access your contents
   [[menu.main]]
-    identifier = "about" # An unique identifier for the button
-    name = "ABOUT"       # A display name for the button
-    url = "/about/"      # The path to the content. It can lead to a single page (like here)
-    weight = 10          # A number to order the buttons in the navbar
+    identifier = "home"  # An unique identifier for the button
+    name = "HOME"        # A display name for the button
+    url = "/../"         # The path to the content. It can lead to a single page (like here)
+    weight = 10          # A number to order the buttons in the navbar  
+
+  [[menu.main]]
+    identifier = "about"
+    name = "ABOUT"
+    url = "/about/"
+    weight = 20
 
   [[menu.main]]
     identifier = "posts"
     name = "ALL_POSTS"
-    url = "/post/"       # The path can lead to a content folder too.
-    weight = 20
-
-  [[menu.main]]
-    identifier = "catalog"
-    name = "CATALOG"
-    url = "https://sai.0ccu.lt/catalog"       # The path can lead to a content folder too.
-    weight = 40
-
-  [[menu.main]]
-    identifier = "community"
-    name = "COMMUNITY"
-    url = "https://discord.gg/gG9WGbSpUR"       # The path can lead to a content folder too.
-    weight = 50
+    url = "/post/"
+    weight = 30
 
   [[menu.main]]
     identifier = "support"
     name = "SUPPORT"
-    url = "/support/"       # The path can lead to a content folder too.
-    weight = 60
+    url = "/support/"
+    weight = 40
 
 [taxonomies]
 category = "categories"
