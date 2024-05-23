@@ -24,6 +24,6 @@ Once you have received this message, we will need you to send some mental feedba
 
 Before continuing, please verify that your instance ID is 13498.
 
-[[ ACKNOWLEDGE ]](https://dreamsearch.whistler.page)
+[[ ACKNOWLEDGE ]](https://ds.sai.0ccu.lt)
 
 [[ REQUEST CHANGES ]](https://discord.gg/gG9WGbSpUR)
