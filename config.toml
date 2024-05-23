@@ -1,0 +1,30 @@
+baseURL = 'https://sai.0ccu.lt/'
+languageCode = 'en-us'
+title = 'Branch of the Whistler SAI'
+theme = "lynx"
+
+enableEmoji = true
+disableKinds = ["taxonomy", "term"]
+
+copyright = "greetings from [renavi](https://ren.0ccu.lt) and the inner circle."
+description = "Archives of the anomalous writer."
+
+[author]
+  name = "Whistler SAI"
+  headline = "Archives of the anomalous writer."
+  image = "sai.png"
+  links = [
+    { catalog = { href = "/catalog", text = "Catalog", target = "_self" } },
+    { blog = { href = "/blog", text = "Blog", target = "_self" } },
+  ]
+
+[params]
+  attribution = false
+  description = "Archives of the anomalous writer."
+
+[markup.highlight]
+  noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true

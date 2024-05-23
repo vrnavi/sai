@@ -1,0 +1,69 @@
+baseURL = "https://sai.0ccu.lt/catalog"
+title = "Catalog"
+author = "Whistler SAI"
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+theme = "vnovel"
+enableRobotsTXT = true
+
+# Please enable this feature if the site is available in Japanese, Chinese or Korean.
+#hasCJKLanguage = true
+
+# If you're using Google Analytics, you can enable this feature.
+#googleAnalytics = ""
+
+# Disqus Comment System
+#disqusShortname = ""
+
+[params]
+# The number of articles to be displayed on a single page.
+paginator_pages = "9"
+
+# Site logo.
+#logo = ""
+
+  [params.homepage_meta_tags]
+    meta_description = "Systemware𐤏 intranet server for Whistler builds."
+    meta_og_title = "main Catalog"
+    meta_og_type = "website"
+    meta_og_url = "https://sai.0ccu.lt/catalog"
+    meta_og_image = "https://sai.0ccu.lt/catalog/img/setup.png"
+    meta_og_description = "Systemware𐤏 intranet server for Whistler builds."
+    meta_twitter_card = "summary_large_image"
+    meta_twitter_site = "https://sai.0ccu.lt/catalog"
+    meta_twitter_creator = ""
+
+
+[menu]
+
+  # [[menu.main]]
+  #   identifier = "home"
+  #   name = "Home"
+  #   url = "https://sai.0ccu.lt/"
+  #   weight = 1
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "https://sai.0ccu.lt/blog"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "community"
+    name = "Community"
+    url = "https://discord.gg/gG9WGbSpUR"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 5
+    

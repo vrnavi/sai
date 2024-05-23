@@ -1,0 +1,11 @@
+[submodule "themes/lynx"]
+	path = themes/lynx
+	url = https://github.com/jpanther/lynx.git
+
+[submodule "blog/themes/hugo.386"]
+	path = blog/themes/hugo.386
+	url = https://gitlab.com/maxlefou/hugo.386
+
+[submodule "catalog/themes/vnovel"]
+	path = catalog/themes/vnovel
+	url = https://github.com/opera7133/vnovel.git
