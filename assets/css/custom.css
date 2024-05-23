@@ -10,16 +10,23 @@
 .link-catalog {
   background-color: #FFFFFF;
   color: #000000 !important;
+  fill: #000000!important;
 }
 
 .link-blog {
   background-color: #FFFFFF;
   color: #000000 !important;
+  fill: #000000!important;
 }
 
 .link-community {
   background-color: #FFFFFF;
   color: #000000 !important;
+  fill: #000000!important;
+}
+
+.link-back{
+  background-color: #000000;
 }
 
 .link {
