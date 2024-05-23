@@ -19,4 +19,4 @@ I don't like how these "Uni" are portrayed. They're too familiar to me.
 ## Releases
 
 **0.0.X** - "Prologue"
-- [HTML](/txt/USS_00X.html)
+- [HTML](/catalog/txt/USS_00X.html)

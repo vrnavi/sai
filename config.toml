@@ -16,6 +16,7 @@ description = "Archives of the anomalous writer."
   links = [
     { catalog = { href = "/catalog", text = "Catalog", target = "_self" } },
     { blog = { href = "/blog", text = "Blog", target = "_self" } },
+    { community = { href = "https://discord.gg/gG9WGbSpUR", text = "Community" } },
   ]
 
 [params]

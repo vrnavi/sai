@@ -37,11 +37,11 @@ paginator_pages = "9"
 
 [menu]
 
-  # [[menu.main]]
-  #   identifier = "home"
-  #   name = "Home"
-  #   url = "https://sai.0ccu.lt/"
-  #   weight = 1
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/../"
+    weight = 1
 
   [[menu.main]]
     identifier = "about"
@@ -50,20 +50,8 @@ paginator_pages = "9"
     weight = 2
 
   [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "https://sai.0ccu.lt/blog"
-    weight = 3
-
-  [[menu.main]]
-    identifier = "community"
-    name = "Community"
-    url = "https://discord.gg/gG9WGbSpUR"
-    weight = 4
-
-  [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
-    weight = 5
+    weight = 3
     

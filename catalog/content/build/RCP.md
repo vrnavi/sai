@@ -19,7 +19,7 @@ The Whistler SAI refuses to tell me what "RCP" is actually supposed to be. They 
 ## Releases
 
 **0.1.X** - "Mere Hours Till"
-- v0.1.1: [Download (PDF)](/txt/RCP_v0.1.1.pdf)
-- v0.1.2: [Download (PDF)](/txt/RCP_v0.1.2.pdf)
-- v0.1.3: [Download (PDF)](/txt/RCP_v0.1.3.pdf)
+- v0.1.1: [Download (PDF)](/catalog/txt/RCP_v0.1.1.pdf)
+- v0.1.2: [Download (PDF)](/catalog/txt/RCP_v0.1.2.pdf)
+- v0.1.3: [Download (PDF)](/catalog/txt/RCP_v0.1.3.pdf)
 - v0.1.4: *Build in progress...*

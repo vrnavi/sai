@@ -13,9 +13,9 @@ To help reduce software piracy, please activate your copy of Gateway whenever yo
 
 Do you want to activate Gateway now?
 
-- [Yes, let's activate Gateway over the Internet now](https://ko-fi.com/wistlyr)
+- [Yes, let's activate Gateway over the Internet now](https://ko-fi.com/renavi)
 - Yes, I want to request the SAI to activate Gateway
-- [No, and don't remind me to activate Gateway](https://whistler.page)
+- [No, and don't remind me to activate Gateway](https://sai.0ccu.lt/blog)
 
 If you wait to activate, you can still use Gateway, but you won't receive access to beta builds.
 

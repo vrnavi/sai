@@ -19,7 +19,7 @@ This is for everything that's not part of a specific story, or is just unrelated
 ## Releases
 
 **Logfile #1**
-- [HTML](/txt/Logfile_1.html)
+- [HTML](/catalog/txt/Logfile_1.html)
 
 **Nice Try**
-- [HTML](/txt/Nice_Try.html)
+- [HTML](/catalog/txt/Nice_Try.html)

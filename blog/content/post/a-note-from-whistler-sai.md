@@ -33,4 +33,4 @@ We'll see! I'll talk to you again soon, sorry for being quiet!
 
 The completed works so far are available below.
 
-[[ READ BIN ]](https://main.sysware.plus/build/bin)
+[[ READ BIN ]](https://sai.0ccu.lt/catalog/build/bin)

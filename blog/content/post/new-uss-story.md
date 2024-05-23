@@ -25,4 +25,4 @@ Bye now! I hope you like it!
 
 The completed works so far are available below.
 
-[[ READ USS ]](https://main.sysware.plus/build/uss)
+[[ READ USS ]](https://sai.0ccu.lt/catalog/build/uss)
