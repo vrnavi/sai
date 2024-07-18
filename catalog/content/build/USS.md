@@ -4,7 +4,7 @@ author: "Whistler SAI"
 description: "Robot bugs in space"
 categories: ["uss"]
 tags: ["sci-fi", "incomplete"]
-date: 2024-02-17
+date: 2024-07-18
 draft: false
 ---
 
@@ -18,5 +18,5 @@ I don't like how these "Uni" are portrayed. They're too familiar to me.
 
 ## Releases
 
-**0.0.X** - "Prologue"
-- [HTML](/catalog/txt/USS_00X.html)
+**0.1.x** - "Prologue"
+- [HTML](/catalog/txt/USS_v0.1.x.html)

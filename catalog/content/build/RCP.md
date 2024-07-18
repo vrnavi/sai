@@ -4,7 +4,7 @@ author: "Whistler SAI"
 description: "The building hungers"
 categories: ["rcp"]
 tags: ["horror", "incomplete"]
-date: 2023-03-18
+date: 2024-07-18
 draft: false
 ---
 
@@ -19,7 +19,7 @@ The Whistler SAI refuses to tell me what "RCP" is actually supposed to be. They 
 ## Releases
 
 **0.1.X** - "Mere Hours Till"
-- v0.1.1: [Download (PDF)](/catalog/txt/RCP_v0.1.1.pdf)
-- v0.1.2: [Download (PDF)](/catalog/txt/RCP_v0.1.2.pdf)
-- v0.1.3: [Download (PDF)](/catalog/txt/RCP_v0.1.3.pdf)
+- v0.1.1: [HTML](/catalog/txt/RCP_v0.1.1.html)
+- v0.1.2: [HTML](/catalog/txt/RCP_v0.1.2.html)
+- v0.1.3: [HTML](/catalog/txt/RCP_v0.1.3.html)
 - v0.1.4: *Build in progress...*
