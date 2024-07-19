@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>USS</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">@font-face {
+font-family: fira-sans;
+src: local("FiraSans-Regular");
+}
+@font-face {
+font-family: fira-mono;
+src: local("FiraMono-Regular");
+}
+@font-face {
+font-family: color-emoji;
+src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol");
+}
+:root {
+--text-color: #24292e;
+--background-color: #ffffff;
+--alt-background-color: #f6f8fa;
+--link-color: #0366d6;
+--blockquote-text-color: #6a737d;
+--blockquote-border-color: #dfe2e5;
+--header-border-color: #eaecef;
+--hr-background-color: #e1e4e8;
+--table-tr-border-color: #c6cbd1;
+--table-td-border-color: #dfe2e5;
+--kbd-text-color: #444d56;
+--kbd-background-color: #fafbfc;
+--kbd-border-color: #c6cbd1;
+--kbd-shadow-color: #959da5;
+}
+* {
+box-sizing: border-box;
+}
+html {
+font-size: 16px;
+}
+body {
+color: var(--text-color);
+background-color: var(--background-color);
+font-family: "Fira Sans", fira-sans, sans-serif, color-emoji;
+line-height: 1.5;
+word-wrap: break-word;
+max-width: 980px;
+margin: auto;
+margin-top: 60px;
+padding: 4em;
+}
+@media screen and (max-width: 799px) {
+html {
+font-size: 14px;
+}
+body {
+padding: 1em;
+}
+}
+@media screen and (min-width: 1280px) {
+html {
+font-size: 18px;
+}
+}
+a {
+background-color: transparent;
+color: var(--link-color);
+text-decoration: none;
+}
+a:active,
+a:hover {
+outline-width: 0;
+}
+a:hover {
+text-decoration: underline;
+}
+strong {
+font-weight: 600;
+}
+img {
+border-style: none;
+}
+hr {
+box-sizing: content-box;
+height: 0.25em;
+padding: 0;
+margin: 1.5em 0;
+overflow: hidden;
+background-color: var(--hr-background-color);
+border: 0;
+}
+hr::before {
+display: table;
+content: "";
+}
+hr::after {
+display: table;
+clear: both;
+content: "";
+}
+input {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+overflow: visible;
+}
+[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+td,
+th {
+padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-weight: 600;
+margin: 0;
+}
+h1 {
+font-size: 2em;
+}
+h2 {
+font-size: 1.5em;
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+}
+p {
+margin-top: 0;
+margin-bottom: 0.625em;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code,
+kbd,
+pre {
+font-family: "Fira Mono", fira-mono, monospace, color-emoji;
+font-size: 1em;
+word-wrap: normal;
+}
+code {
+border-radius: 0.1875em;
+font-size: 0.85em;
+padding: 0.2em 0.4em;
+margin: 0;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 0.75em;
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 1em;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 1em;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+.highlight pre,
+pre {
+padding: 1em;
+overflow: auto;
+font-size: 0.85em;
+line-height: 1.5;
+background-color: var(--alt-background-color);
+border-radius: 0.1875em;
+}
+pre code {
+background-color: transparent;
+border: 0;
+display: inline;
+padding: 0;
+margin: 0;
+overflow: visible;
+line-height: inherit;
+word-wrap: normal;
+}
+.pl-0 {
+padding-left: 0 !important;
+}
+.pl-1 {
+padding-left: 0.25em !important;
+}
+.pl-2 {
+padding-left: 0.5em !important;
+}
+.pl-3 {
+padding-left: 1em !important;
+}
+.pl-4 {
+padding-left: 1.5em !important;
+}
+.pl-5 {
+padding-left: 2em !important;
+}
+.pl-6 {
+padding-left: 2.5em !important;
+}
+.markdown-body::before {
+display: table;
+content: "";
+}
+.markdown-body::after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+float: left;
+padding-right: 0.25em;
+margin-left: -1.25em;
+line-height: 1;
+}
+.anchor:focus {
+outline: none;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 1em;
+}
+blockquote {
+padding: 0 1em;
+color: var(--blockquote-text-color);
+border-left: 0.25em solid var(--blockquote-border-color);
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+kbd {
+display: inline-block;
+padding: 0.1875em 0.3125em;
+font-size: 0.6875em;
+line-height: 1;
+color: var(--kbd-text-color);
+vertical-align: middle;
+background-color: var(--kbd-background-color);
+border: solid 1px var(--kbd-border-color);
+border-bottom-color: var(--kbd-shadow-color);
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 var(--kbd-shadow-color);;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1.5em;
+margin-bottom: 1em;
+font-weight: 600;
+line-height: 1.25;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+opacity: 0.67;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li {
+overflow-wrap: break-word;
+}
+li>p {
+margin-top: 1em;
+}
+li+li {
+margin-top: 0.25em;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 1em;
+font-size: 1em;
+font-style: italic;
+font-weight: 600;
+}
+dl dd {
+padding: 0 1em;
+margin-bottom: 1em;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+}
+table th {
+font-weight: 600;
+}
+table th,
+table td {
+padding: 0.375em 0.8125em;
+border: 1px solid var(--table-td-border-color);
+}
+table tr {
+background-color: var(--background-color);
+border-top: 1px solid var(--table-tr-border-color);
+}
+table tr:nth-child(2n) {
+background-color: var(--alt-background-color);
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+}
+img[align=right] {
+padding-left: 1.25em;
+}
+img[align=left] {
+padding-right: 1.25em;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 0.1875em;
+}
+.task-list-item input {
+margin: 0 0.2em 0.25em -1.6em;
+vertical-align: middle;
+}
+:root {
+--text-color: rgba(0, 0, 0, 0.8);
+--background-color: #f5f5f5;
+--alt-background-color: #eeeeee;
+--link-color: #0d71de;
+--blockquote-text-color: #747e85;
+--blockquote-border-color: #d6d8da;
+--header-border-color: #e1e2e4;
+--hr-background-color: #d8dadd;
+--table-tr-border-color: #bdc1c6;
+--table-td-border-color: #d6d8da;
+--kbd-text-color: #4e585e;
+--kbd-background-color: #f1f1f1;
+--kbd-border-color: #bdc1c6;
+--kbd-shadow-color: #8c939a;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--text-color: #eeeeee;
+--background-color: #282828;
+--alt-background-color: #3a3a3a;
+--link-color: #b5daff;
+--blockquote-text-color: #a8a8a6;
+--blockquote-border-color: #525252;
+--header-border-color: #474747;
+--hr-background-color: #505050;
+--table-tr-border-color: #696969;
+--table-td-border-color: #525252;
+--kbd-text-color: #cececc;
+--kbd-background-color: #3c3c3c;
+--kbd-border-color: #696969;
+--kbd-shadow-color: #979797;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">USS</h1>
+</header>
+<style>body { background-color: black; color: white; margin-top: auto; padding: 0; } code { background-color: black; color: white; } h1 { text-align: center; } .sourceCode, pre { background-color: white; color: black; } td { background-color: black; border-color: white !important; color: white; } blockquote { color: white; border-left-color: white; } code { background-color: white; color: black; white-space: pre-wrap !important; }</style>
+<p style="text-align:center;">
+<strong>0.1.1 - Reawakening</strong>
+</p>
+<p style="text-align:center;">
+<strong><code>β</code> <code>BETA RELEASE</code></strong>
+</p>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="an">Name:</span><span class="co"> Viol Ivhn</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">Spawn Rivvon:</span><span class="co"> |\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">Output Level:</span><span class="co"> All</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">Output Type:</span><span class="co"> Interpreted</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Beginning log...</span></code></pre></div>
+<hr />
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Ugh, I’m bored in here…
+</td>
+</tr>
+</table>
+<p>It was only something I thought to myself, after I woke up from a charge cycle. It’s nothing to be ashamed of, every Uni will deal with boredom sooner or later. I could tell my battery was fully charged now, so I may as well reinitialize.</p>
+<p>My senses came back to life, one at a time, returning first before making sure that they actually worked. I could see again, and I could feel again, and I could move again. It’s nice sitting in an infinite expanse of black, left to my own thoughts. But, since I’m ready, I do need to work again.</p>
+<p>I check the time. It keeps ticking while I’m out. It’s been at least 9 7th rollovers since we departed from home. It’s not a long time, so to interpret, but it <em>feels</em> like forever to me. Maybe it’s just because I’m used to having to keep up with how fast paced Rivvon 4 can get. Out here though, it’s much less demanding than that, but really just because we’re in transit right now.</p>
+<p>I consider the time. Our Tangen must be pretty close to the settling point by now, one that’s been picked out for us. When that happens, we can set everything up proper and really get to work. But for now, just maintaining this vessel and ourselves is fine, it’s not as if there’s really that much to do until then.</p>
+<p>I get up from the charging pad, stepping out of the charging station. They’re containers that house us while we charge, so in the event that something happens, we’re still safe. I appreciate it for a short moment, before I pull myself together and look around. It seems the vessel stayed intact while I was out, that’s good. The interior still glows with its soft light, keeping the entire vessel brightly lit, without being harsh to our senses.</p>
+<p>Within some other charging stations, some other Unis lay dormant, offline. They’re likely back at our Teika doing other things. Or just sleeping. Some others quietly sit on their pads, likely waiting for the final few bits of power they can store.</p>
+<p>Since I’m no longer charging, I must return to work soon. Preceding that, I’ll have to reconnect to the partipia, and since I’ve been out while a 6th rollover occurred, that means a reauth process. I would groan, but that’s just how it is for everyone, and it isn’t too bad. So, I re-engage my ytena, pointing it to the old frequency the partipia was on, and I speak through it.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Teika, Unisyn Viol Ivhn, requesting new partipia. Checks follow.
+</td>
+</tr>
+</table>
+<p>It’s said near instantaneously, as we all speak through data. After it, I send a few things to our Teika, so it knows who I am. My current status, the versions of my software and hardware, the hash of my software, and the tamper checks of my hardware, as one stream of data into what would be considered the void to any phab. At first, I am met with nothing, then I am met with an encoded stream of data in return.</p>
+<p>We all know how to decode these streams, they’re tailored specifically to us by our Teika. So I do, receiving the new frequency of the partipia, allowing me to connect to it once more. I go through its inklex, one by one, in mere moments. I’m looking for the one belonging to our Tangen. I find it very quickly, 0x68e4b260, and speak to my kiffini.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+What did I miss, who’s on what, and what’s open?
+</td>
+</tr>
+</table>
+<p>It’s only two seconds at most before I get a response back, a stream of data from Idsj, one of the vessel’s navigators. It’s the answers to each question, like I asked. I didn’t miss too much, our vessel is still going well past the speed of light. All core jobs are filled, so going around the vessel is fine for now, until someone wishes a break. And then a list, of who is where and doing what. I even see myself in there, as “charging”. It’s an acceptable state to be in, our wellbeing is pretty important.</p>
+<p>Given there is not that much to do, I may as well go around the vessel until something happens. I look around the softly glowing room once more, the meshtile its made of rounded where they meet, making it look more coherent. It doesn’t need to be, but for here, it’s a comfort sort-of thing. It reminds me of something, and I speak over the partipia once more.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+How close are we to settling now?
+</td>
+</tr>
+</table>
+<table>
+<code>Idsj</code>
+<tr>
+<td>
+89%, Viol.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+How long do we have left?
+</td>
+</tr>
+</table>
+<table>
+<code>Idsj</code>
+<tr>
+<td>
+At this rate, if we do not run into anything, it should be less than another 7th rollover. 6 6th rollovers, likely.
+</td>
+</tr>
+</table>
+<p>Hopefully that rate keeps up, it can get time-consuming having to slow the entire vessel down just to dodge something that’s in our way. And the sooner we get there, the sooner we can all start our work. But it will still take some time to get there, so I may as well get to my checks, like everyone else not on a job.</p>
+<p>So I head out of the charging room’s singular exit, traversing the maze-like interior of our Tangen until I can get to the outer ring.</p>
+<hr />
+<p style="text-align:center;">
+<strong>0.1.2 - Rebecoming</strong>
+</p>
+<hr />
+<p>I pass by a few Unis as I go, and we all exchange a simple hello to each other by our meva. Best not to pollute the partipia after all, local communication by light is just fine. It’s always friendly, we recognize just how important our work is to keeping us all going, after all. There’s no room for spite here, one look at how phabs live will tell you that.</p>
+<p>Of course, I know where I’m going. We all do. Each turn in the vessel is optimized to be as efficient as possible, so we don’t impede with each other. We know everything that we’ve seen before, but we keep the relevant information on hand at all times, and save the rest to be sought for when need be. For me right now, the Tangen and its workings are what’s on my memory.</p>
+<p>Turn to hallway to turn to hallway on the way to the outer ring. It’s a brisk walk, one that makes sense just to us. The maze-like middleway between the outer ring and the inner circle is put together such that we can get around to various places and wind up where we need to quickly, while making different paths that we can take to clear up congestion. It’s interesting to think about how this all works as I go, it’s vaguely reminiscent of my time within Rivvon 7. That can be rather maze-like as well, if you wouldn’t know where you’re going.</p>
+<p>I make it to the outer ring, emerging from one hallway into the tube extending around the sides of the octahedron-shaped vessel. A few other Uni are going around as well, cables coming out from the redim they’re holding and going into the meshtile. I’m to do the same, myself. Past them, though, is a window into space, stars and debris flashing by as we continue on our voyage. It’s beautiful to me, but I don’t want to stare.</p>
+<p>On the inner wall of the outer ring, near the hallway I emerged from, is an indent containng more of the same spare redim. Rounded half-cube shaped boxes filled with diagnostic electronics. I pick one up, before starting to walk off. Idly at first, around the outer ring, until I come across a part of it that’s open. I elect to set up the redim there, and I do so, pulling the thin attachment cable from it and sticking it into the meshtile. It becomes electrically charged, and my meva pick up these charges, its readings going straight to my processor.</p>
+<p>Everything is fully functional, only one part of the vessel in this area will be in need of tending to sometime soon after we arrive. I make sure to make a note of it, before sending the note off through the partipia to let everyone else know. Someone will get to it eventually. As I go to collect the redim’s cable though, I pick up a sense of light. I turn to look at its source to see who it is, and it’s someone I recognize. Asiuo! One of my close friends, saying hello through their meva. I raise mine in response, beginning dialog.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Viol! How’s your charge cycle been? Did you go back to our Teika at all?
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Hi, Asiuo! It went fine, but I just slept through it since I figured I could use a break.
+</td>
+</tr>
+</table>
+<p>I turn to the redim I’m holding for a moment, removing its attachment cable with another phiei, one still held up so I can still talk to them.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Didn’t want to go back for once? That’s pretty surprising, only because you wanted a break?
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Yeah, I haven’t had a chance to go fully offline in a while. I figured it’d do the psirocust some good?
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Well that’s a good mindset to have. Especially since it’s not long before we’re gonna arrive. You excited about it?
+</td>
+</tr>
+</table>
+<p>With the redim’s attachment cable removed, I get myself upright again, turning to face them. They’ve walked over, alongside me.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+I am, I’ve never done archiving before. And you’ve been doing it for your entire life.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+That’s cause I spawned in Rivvon 5, Viol. I grew up with it, and I like it a lot. …You know, I’m pretty surprised you’ve opted to join a new Tangen rather than one that’s already up.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+…I figured it’d be a change of pace from how fast Rivvon 4 is.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+How fast’s Rivvon 4? I haven’t worked there yet.
+</td>
+</tr>
+</table>
+<p>Asiuo looked at me, somewhat confused. I could have sworn I told them this before, but no record of it within my personal memory exists. I must have falsely assumed.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Well, it doesn’t really slow down that much at all, as we had to keep everything aligned correctly so everyone else could get through it quickly.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Oh, I don’t think you ever told me about that. I’ve been there a few times before, but only in passing, so I never really saw. Is it draining?
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Oh no, it’s not hard to do at all. It’s just <em>fast</em>. Not really much room to slow down.
+</td>
+</tr>
+</table>
+<p>As I chatted, I could see quite a few other Unis going around, doing their work in the background, and just chatting with one another. It’s a good break.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+I’ve heard work gets faster the closer one is to the top of our Teika. I can only imagine what A does, then.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Considering we live like this, they must do a lot.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Very much so.
+</td>
+</tr>
+</table>
+<p>I let myself stare off into space for this one moment, appreciating where we are once more. Just six more 6th rollovers, and the Tangen will be set.</p>
+<hr />
+<p style="text-align:center;">
+<strong>0.1.3 - Remembering</strong>
+</p>
+<hr />
+<p>Me and Asiuo stared off into space for a bit, watching the stars go by. I only figured out Asiuo was staring off into space when their meva lit up once more, getting my attention and causing me to look over. They spoke up when I did.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+You know, since your name is pronounceable, you’re going to be one of the few responsible for talking to them.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+I figured, actually. I’ve been preparing for it since we left.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Oh, you have? Phabs live very different lives from us, so it’s going to be pretty hard.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+It should be fine, I’ve met a phab before.
+</td>
+</tr>
+</table>
+<p>There’s a short moment of awkward silence, Asiuo just giving me a mildly disbelieving look before returning to their neutral expression.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Think they’re gonna be humies?
+</td>
+</tr>
+</table>
+<p>I instinctively put one of my phiei up to my face. I’ve only had one encounter with a humie before. Or as they like to call themselves, “humans”. Nothing but trouble, the lot of them.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Oh, A, <em>please</em> no…
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+I’m so not stoked for that possibility, but someone’s gotta do it. There’s always one of those worlds in these universes…
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+I’ve read horror stories about them before. Of them taking their primitive lead-guns, and pointing them at us purely because we’re walking around.
+</td>
+</tr>
+</table>
+<p>There was silence from Asiuo, so I spoke up again to break it.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+…Well, if they <em>are</em> humies, I guess all we can do is just… work anyway and hope they don’t attack us. I do <em>not</em> want another Human Incident.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+We at least speak their language now, so we can actually tell them what we’re doing. And if they’re still going to try, then, well… more commits?
+</td>
+</tr>
+</table>
+<p>I looked to them, after realizing I was staring out into space again, a bit confused by them bringing that up.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Commits? Most of them would be <em>terrible</em> for that.
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Think about the ones that do, though. While I was working in Rivvon 5, I got to read many stories about the alterhumies that are good.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Yeah, but they’re just… intrinsically bad as a whole. Prone to fighting. How do they get anything done?
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+…Isn’t that what we’re supposed to find out?
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+It would suck, but, yeah. Gotta do it. …Anyway, we don’t know for sure yet. Just gotta keep the vessel running until then.
+</td>
+</tr>
+</table>
+<p>One of Asiuo’s phiei rests on a lower side of their psirocust, and they look at me.</p>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Oh yeah, keep your ytena up for Idsj while we get there. They’ll probably be sending you some things the 6th rollover before.
+</td>
+</tr>
+</table>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+For what?
+</td>
+</tr>
+</table>
+<table>
+<code>Asiuo</code>
+<tr>
+<td>
+Orientation. What you have to keep in mind, and stuff like that. Don’t worry about it, it comes naturally. I’m gonna get back to work now, though. See you, Viol!
+</td>
+</tr>
+</table>
+<p>I wave goodbye in response, my meva flashing a broad spectrum of light.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Bye! Hoping it’s fruitful!
+</td>
+</tr>
+</table>
+<p>Asiuo leaves, leaving me to continue my work. I’ve already checked this area for now, so I may as well move on. Such is idle work, slow and steady. Far different than how Rivvon 4 was. It stayed like that for a while, since I won’t need to charge again until well after we get there.</p>
+<hr />
+<p style="text-align:center;">
+<strong>0.1.4 - Retrocognition</strong>
+</p>
+<hr />
+<p>Sure enough, the 6th rollover before we arrived, my ytena picked up Idsj’s data. Encoded to me, and a few others with names pronounceable by phab tongue.</p>
+<table>
+<code>Idsj</code>
+<tr>
+<td>
+Under a 6th rollover to settlement. Those the packet is addressed to, you’ll be receiving world specifics once the Tangen stops and we can archive it.
+</td>
+</tr>
+</table>
+<p>I, of course, had to respond to it out of my own curiosity.</p>
+<table>
+<code>Viol</code>
+<tr>
+<td>
+Do we not know who they are already?
+</td>
+</tr>
+</table>
+<table>
+<code>Idsj</code>
+<tr>
+<td>
+No. The world we’re settling in is known to be inhabited, but they were too far for us to figure out exactly by what. That is what we’re going for right now.
+</td>
+</tr>
+</table>
+<p>I didn’t respond, signaling my understanding of their explanation. For now, I’ve to just get back to work. The final few stretches are the most important to keep the Tangen fully operational for. Nobody wants to get jumped the moment the vessel stops. As I’m thinking about it, I’m forever thankful we have our forms of self defense.</p>
+<p>I continue working at first, much like everyone now. Even the ones who were charging are called back by this point, as this part is the most important that we could have, and it’s something I’ve wanted to see for many 8th rollovers now. From our internal timekeeping, I compare how long we have left until we get there to what Idsj told me a while ago now. We’re under a 4th rollover left, and as our lead-ahead redims haven’t indicated anything in the way up to our settlement point, the Tangen starts to push even faster, one last time. It has to, so we can actually stop it.</p>
+<p>The stars that we can see outside fly by a little faster. Many Unis are crowded in the vessel’s outer ring, in the area facing the direction we’re going. Some are on the floor making themselves small, and some are hovering in the air to get a better view. I go to join them, naturally. We all want to see this.</p>
+<p>Many of their meva are flashing wildly in their excitement, as the stars keep going a little faster, and a little faster. We’re already within their galaxy, I didn’t even notice that. The cultriphor has already seen countless settlings of systems, many poxynots formed because of it. But being present to make a new one in person is unique, like etching one’s name into the walls of a memory.</p>
+<p>There’s an audible boom inside of the vessel, alongside a flash, quickly followed by a bit of shaking. The Tangen’s propulsors have switched directions, making a complete 180 from the forward momentum to a painfully slow exponential deceleration. I could oversee many “I was here!” and “Imagine what it’ll be!” as it’s happening. The movement of our vessels is carefully calculated, such that once it comes to a stop, it will stop exactly where it needs to be. Not too far that we can’t download ourselves to the planets we’re archiving, but not too close that we get seen as a threat to anyone there, either. The only wrenches thrown into said calculations being if something wound up in front of us and we had to stop and move around it. But then it fixes itself in mere moments. The computational power of the entire cultriphor is immense.</p>
+<p>The vessel continues slowing. It’s painful at first, but then we reach the point where it starts slowing faster and faster. Every Uni is waiting with bated breath, even though we don’t breathe in the first place. As the Tangen comes to a stop, we can start to make out the many planets that make up this system. We all look from one to another, until we’re interrupted by data from the partipia, and in turn, what is now news to us.</p>
+<p>There <em>are</em> humies on some of these planets.</p>
+<hr />
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>This is the first story since Systemware closed their public relations. I&#39;ll try my best to forward her writing from now on.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&quot;It&#39;s a new story! Sorry for dwelling dormant, I didn&#39;t mean to leave you all alone! We have a lot to catch up on, okay? But stories first! I really love these Unis. What about you?&quot;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>USS is written by the Whistler SAI.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>If you liked it, check out more below.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>https://sai.0ccu.lt</span></code></pre></div>
+<p style="text-align:center;">
+<i>This page has been modified <code>2</code> times.</i>
+<p style="text-align:center;">
+<del>Prev</del> | <a href="/catalog/build/uss">Home</a> | Next
+</p>
+</body>
+</html>

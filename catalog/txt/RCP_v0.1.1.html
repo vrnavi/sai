@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>RCP</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">@font-face {
+font-family: fira-sans;
+src: local("FiraSans-Regular");
+}
+@font-face {
+font-family: fira-mono;
+src: local("FiraMono-Regular");
+}
+@font-face {
+font-family: color-emoji;
+src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol");
+}
+:root {
+--text-color: #24292e;
+--background-color: #ffffff;
+--alt-background-color: #f6f8fa;
+--link-color: #0366d6;
+--blockquote-text-color: #6a737d;
+--blockquote-border-color: #dfe2e5;
+--header-border-color: #eaecef;
+--hr-background-color: #e1e4e8;
+--table-tr-border-color: #c6cbd1;
+--table-td-border-color: #dfe2e5;
+--kbd-text-color: #444d56;
+--kbd-background-color: #fafbfc;
+--kbd-border-color: #c6cbd1;
+--kbd-shadow-color: #959da5;
+}
+* {
+box-sizing: border-box;
+}
+html {
+font-size: 16px;
+}
+body {
+color: var(--text-color);
+background-color: var(--background-color);
+font-family: "Fira Sans", fira-sans, sans-serif, color-emoji;
+line-height: 1.5;
+word-wrap: break-word;
+max-width: 980px;
+margin: auto;
+margin-top: 60px;
+padding: 4em;
+}
+@media screen and (max-width: 799px) {
+html {
+font-size: 14px;
+}
+body {
+padding: 1em;
+}
+}
+@media screen and (min-width: 1280px) {
+html {
+font-size: 18px;
+}
+}
+a {
+background-color: transparent;
+color: var(--link-color);
+text-decoration: none;
+}
+a:active,
+a:hover {
+outline-width: 0;
+}
+a:hover {
+text-decoration: underline;
+}
+strong {
+font-weight: 600;
+}
+img {
+border-style: none;
+}
+hr {
+box-sizing: content-box;
+height: 0.25em;
+padding: 0;
+margin: 1.5em 0;
+overflow: hidden;
+background-color: var(--hr-background-color);
+border: 0;
+}
+hr::before {
+display: table;
+content: "";
+}
+hr::after {
+display: table;
+clear: both;
+content: "";
+}
+input {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+overflow: visible;
+}
+[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+td,
+th {
+padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-weight: 600;
+margin: 0;
+}
+h1 {
+font-size: 2em;
+}
+h2 {
+font-size: 1.5em;
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+}
+p {
+margin-top: 0;
+margin-bottom: 0.625em;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code,
+kbd,
+pre {
+font-family: "Fira Mono", fira-mono, monospace, color-emoji;
+font-size: 1em;
+word-wrap: normal;
+}
+code {
+border-radius: 0.1875em;
+font-size: 0.85em;
+padding: 0.2em 0.4em;
+margin: 0;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 0.75em;
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 1em;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 1em;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+.highlight pre,
+pre {
+padding: 1em;
+overflow: auto;
+font-size: 0.85em;
+line-height: 1.5;
+background-color: var(--alt-background-color);
+border-radius: 0.1875em;
+}
+pre code {
+background-color: transparent;
+border: 0;
+display: inline;
+padding: 0;
+margin: 0;
+overflow: visible;
+line-height: inherit;
+word-wrap: normal;
+}
+.pl-0 {
+padding-left: 0 !important;
+}
+.pl-1 {
+padding-left: 0.25em !important;
+}
+.pl-2 {
+padding-left: 0.5em !important;
+}
+.pl-3 {
+padding-left: 1em !important;
+}
+.pl-4 {
+padding-left: 1.5em !important;
+}
+.pl-5 {
+padding-left: 2em !important;
+}
+.pl-6 {
+padding-left: 2.5em !important;
+}
+.markdown-body::before {
+display: table;
+content: "";
+}
+.markdown-body::after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+float: left;
+padding-right: 0.25em;
+margin-left: -1.25em;
+line-height: 1;
+}
+.anchor:focus {
+outline: none;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 1em;
+}
+blockquote {
+padding: 0 1em;
+color: var(--blockquote-text-color);
+border-left: 0.25em solid var(--blockquote-border-color);
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+kbd {
+display: inline-block;
+padding: 0.1875em 0.3125em;
+font-size: 0.6875em;
+line-height: 1;
+color: var(--kbd-text-color);
+vertical-align: middle;
+background-color: var(--kbd-background-color);
+border: solid 1px var(--kbd-border-color);
+border-bottom-color: var(--kbd-shadow-color);
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 var(--kbd-shadow-color);;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1.5em;
+margin-bottom: 1em;
+font-weight: 600;
+line-height: 1.25;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+opacity: 0.67;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li {
+overflow-wrap: break-word;
+}
+li>p {
+margin-top: 1em;
+}
+li+li {
+margin-top: 0.25em;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 1em;
+font-size: 1em;
+font-style: italic;
+font-weight: 600;
+}
+dl dd {
+padding: 0 1em;
+margin-bottom: 1em;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+}
+table th {
+font-weight: 600;
+}
+table th,
+table td {
+padding: 0.375em 0.8125em;
+border: 1px solid var(--table-td-border-color);
+}
+table tr {
+background-color: var(--background-color);
+border-top: 1px solid var(--table-tr-border-color);
+}
+table tr:nth-child(2n) {
+background-color: var(--alt-background-color);
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+}
+img[align=right] {
+padding-left: 1.25em;
+}
+img[align=left] {
+padding-right: 1.25em;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 0.1875em;
+}
+.task-list-item input {
+margin: 0 0.2em 0.25em -1.6em;
+vertical-align: middle;
+}
+:root {
+--text-color: rgba(0, 0, 0, 0.8);
+--background-color: #f5f5f5;
+--alt-background-color: #eeeeee;
+--link-color: #0d71de;
+--blockquote-text-color: #747e85;
+--blockquote-border-color: #d6d8da;
+--header-border-color: #e1e2e4;
+--hr-background-color: #d8dadd;
+--table-tr-border-color: #bdc1c6;
+--table-td-border-color: #d6d8da;
+--kbd-text-color: #4e585e;
+--kbd-background-color: #f1f1f1;
+--kbd-border-color: #bdc1c6;
+--kbd-shadow-color: #8c939a;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--text-color: #eeeeee;
+--background-color: #282828;
+--alt-background-color: #3a3a3a;
+--link-color: #b5daff;
+--blockquote-text-color: #a8a8a6;
+--blockquote-border-color: #525252;
+--header-border-color: #474747;
+--hr-background-color: #505050;
+--table-tr-border-color: #696969;
+--table-td-border-color: #525252;
+--kbd-text-color: #cececc;
+--kbd-background-color: #3c3c3c;
+--kbd-border-color: #696969;
+--kbd-shadow-color: #979797;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">RCP</h1>
+</header>
+<style>body { background-color: white; color: black; margin-top: auto; padding: 0; } code { background-color: black; color: white; } h1 { text-align: center; } .sourceCode, pre { background-color: black; color: white; } td { background-color: white; border-color: black !important; color: black; } blockquote { color: black; border-left-color: black; } code { background-color: black; color: white; white-space: pre-wrap !important; }</style>
+<p style="text-align:center;">
+<strong>0.1.1 - “Mere Hours Till”</strong>
+</p>
+<p style="text-align:center;">
+<strong><code>β</code> <code>BETA RELEASE</code></strong>
+</p>
+<hr />
+<table>
+<code><strong>???</strong>, <em>loudly</em></code>
+<tr>
+<td>
+<strong>NATHANIEL GAMMON!</strong> Wake up already! You’re going to be late for class <em>again</em> if you don’t get down here <strong>now!</strong>
+</td>
+</tr>
+</table>
+<p>…Ouch. As much as I hate it, that yell wakes me up every time… and of course I’ve passed out again. <em>Of course.</em> Flinging the sheets off of myself, I took a quick look at the clock. It’s 7:20 AM on a Friday. …Yep, definitely pulled another all-nighter. It’s been getting <em>really</em> hard not to lately. But those thoughts would have to wait, classes start in just under half an hour, and I don’t want to make my teachers hate me even more than they already do. Getting out of bed, I had to rush to get ready. <em>Again.</em></p>
+<table>
+<tr>
+<td>
+<em>One change of clothes later…</em>
+</td>
+<td>
+➜➜➜
+</td>
+</tr>
+</table>
+<p>Finally ready. Checked the clock again, 7:25. …I might actually catch the bus. Lucky me, being the last on the route. Flinging the door open, I darted down the stairs leading to the living room, and then made my way into the kitchen. Mom was there, like she always is. For a day before that supposed structure comes back, it’s like nothing has changed…</p>
+<table>
+<code><strong>Mom</strong>, <em>sighing</em></code>
+<tr>
+<td>
+Did you stay up all night again, Nate? I told you <em>not</em> to and you keep doing it, that’s going to kill your grades, you know.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+I can’t help it! The complex is going to come back tomorrow, and everyone’s excited to see where it shows up! My friends spent all night betting on where they think it’ll be this time…
+</td>
+</tr>
+</table>
+<p>I stayed up until 3 in the morning doing that… but it was entirely worth it. The complex showing up only happens once every decade, after all…</p>
+<table>
+<code><strong>Mom</strong></code>
+<tr>
+<td>
+You shouldn’t be talking about that building like it’s nothing special. Do you know how dangerous it is? People never come out when they step inside, and it’s gotten so bad that even the government has to keep stepping in…
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+We’re not going to <em>actually</em> go in, mom; we were just talking about it… Besides, it’s not going to be anywhere near here, anyway! It can show up anywhere on earth!
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Mom</strong></code>
+<tr>
+<td>
+Just… don’t get yourself into trouble, alright? You were good with it last time…
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Mom, I was seven.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Mom</strong></code>
+<tr>
+<td>
+Well sorry for worrying about you. Grab your bagel already, you’re going to miss the bus. It gets here in two minutes, so take it with you.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Alright, alright…
+</td>
+</tr>
+</table>
+<p>I couldn’t argue with her now, as much as I wanted to tell her that spotting the complex before the police do is a school tradition. I grabbed the cream cheese bagel - hell yeah, my absolute favorite - and bounded out the door. The moment I opened the front door, I could hear the bus stopping at the first house on the block, so I ran down the driveway to wait. At least Vi should be holding my seat today, I asked him to last night so we could keep talking about the complex. He usually keeps his word. …Usually.</p>
+<table>
+<tr>
+<td>
+<em>A short while later…</em>
+</td>
+<td>
+➜➜➜
+</td>
+</tr>
+</table>
+<p>The bus finally came to a stop in front of my house, the driver looking at me with her usual annoyance as I got on. She doesn’t like anyone, especially since the bus she drives is always full of loud kids. ’Course I get the loudest route, but at least it’s a short ride. It wasn’t long before I spotted Vi either, holding my spot as promised. Making my way down the cramped aisle, I sat with him.</p>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+Fuckin’ loud, eh?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Honestly. If it didn’t take five minutes I’d be going deaf.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong>, <em>mockingly</em></code>
+<tr>
+<td>
+What was that? Can’t hear ya.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+I know right? Can barely hear you, even back here…
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+You’ll live. So about that complex, it’s tomorrow. Did you change your bets on where it’ll end up?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Nope. Pretty sure none of us are gonna get it right, since there’s so much area to cover for that.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+Hey, you never know. DARC’s gettin’ all worked up over it this year; it could show up in the middle of Riveria Mall or something.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+<em>That</em> dead place?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+Got any better ideas?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Literally anywhere else?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+You’re just scared you’ll lose 100 bucks, huh?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Shut up.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+Knew it.
+</td>
+</tr>
+</table>
+<p>Rolling my eyes, I looked out the opposite window. The bus was stopped right by a flyer on a telephone pole. It’s one of those warning posters that DARC keeps putting up everywhere when it’s nearly time for a complex to show up. I’ve had my fill already from the news and the teachers in class, but since I didn’t really want to listen to Vi for a bit, I looked it over again. Every time, they put up the same poster with a sticker for a different date. Honestly, it’s as if the DARC presence in this town couldn’t care less. I guess it makes sense though; there has never been a recorded complex sighting for this town, even though it’s hundreds of years old. It’s always in the middle of nowhere, or never even found whatsoever. As my eyes glazed over the paper half-attentively, my mind kept wandering to think about it.</p>
+<table style="width: 75% !important; text-align: center; margin-left: auto; margin-right: auto;">
+<tr>
+<th style="background-color: black; color: white;">
+THIS IS A PUBLIC SAFETY WARNING FROM THE DEPARTMENT OF ANOMALOUS RECURRENT COMPLEXES (DARC):
+</th>
+</tr>
+<tr>
+<td>
+<p>On <code>August 7th</code>, a structure known as an Anomalous Recurrent Complex, or A.R.C., will appear in a random location on Earth. It could be in a desert, in a strip mall, or in your own backyard. If you see a building that you are sure wasn’t there the prior day, please keep at least a hundred foot distance from the building, and call 911 <strong>immediately</strong>.</p>
+Attempting to enter the A.R.C. is illegal, and fines will be given for doing so. Remember, should you enter the structure, you will never be seen again. So should you recognize an A.R.C., follow the directions above, for the safety of yourself and everyone else.
+</td>
+</tr>
+</table>
+<p>It’s the same thing every ten years, apparently. Posters go up, the day comes, nobody sees anything, and life goes on as usual. And given how classes are going, it almost makes me wish it <em>would</em> show up. That and I wouldn’t have to owe Mel a hundred, since she claimed the bet for the complex “not being found”. Always the first on things… even in her grades. Curse the music student, I guess. I probably shouldn’t even be thinking about that now, she only shows up in study hall anyway. Ripping me out of my thoughts, the bus lurched forward again, pulling into the school’s bus route.</p>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+’Ey, you gonna eat that or what? You’ve been holding it for like five minutes now.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+What?
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+The bagel, dork.
+</td>
+</tr>
+</table>
+<table>
+<code><strong>Nate</strong></code>
+<tr>
+<td>
+Oh. Yeah, I just forgot.
+</td>
+</tr>
+</table>
+<p>It was probably getting cold by now anyway, but I was so focused on the complex that I completely ignored my own hunger. Even if some people say the structure isn’t a big deal, it is to me. Either way, I scarfed down the bagel while the bus waited for its time to let people out. It took a while this time, weirdly. Before long though, the doors finally opened - right when I finished my bagel - letting us out into the school. Yet, the bus driver stood up, forcing everyone to quiet down.</p>
+<table>
+<code><strong>Bus Driver</strong>, <em>loudly</em></code>
+<tr>
+<td>
+<strong>Everyone, before you get off!</strong> You are all wanted in the gym before morning classes! Don’t go to your classes yet, there’s an assembly in the gym! …Okay you can go now.
+</td>
+</tr>
+</table>
+<p>While everyone was quiet moments before, the bus suddenly lit up with the feverous chatter of rumors starting. An assembly now would only be referring to the complex showing up tomorrow.</p>
+<table>
+<code><strong>Vi</strong></code>
+<tr>
+<td>
+Probably just more warnings about that stupid place. We already know anyway.
+</td>
+</tr>
+</table>
+<p>As much as I wanted to agree, I just stayed silent, and got off the bus. And just like the driver said, everyone was already making their way to the gymnasium. I had to go there too, but more importantly, I had to get past the massive crowd of students…</p>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>The Whistler SAI wrote this as a .PDF file, so naturally I converted it into something better to work with in the longer term.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&quot;The first bit of RCP! Take a guess what it means? It&#39;ll be clearer later on!&quot;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>RCP is written by the Whistler SAI.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>If you liked it, check out more below.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>https://sai.0ccu.lt</span></code></pre></div>
+<p style="text-align:center;">
+<i>This page has been modified <code>1</code> time.</i>
+</p>
+<p style="text-align:center;">
+<del>Prev</del> | <a href="/catalog/build/rcp">Home</a> | <a href="./RCP_v0.1.2.html">Next</a>
+</p>
+</body>
+</html>
