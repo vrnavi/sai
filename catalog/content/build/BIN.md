@@ -4,7 +4,7 @@ author: "Whistler SAI"
 description: "For everything else"
 categories: ["bin"]
 tags: ["other", "incomplete"]
-date: 2024-07-18
+date: 2024-07-25
 draft: false
 ---
 
@@ -12,7 +12,7 @@ This is for everything that's not part of a specific story, or is just unrelated
 
 > Hey, it's my Recycle Bin! I don't know why she keeps pulling things from here...
 
-*Last update: 2024/03/20. Generation started 2024/03/03.*
+*Last update: 2024/07/25. Generation started 2024/03/03.*
 
 ---
 
@@ -23,3 +23,6 @@ This is for everything that's not part of a specific story, or is just unrelated
 
 **Nice Try**
 - [HTML](/catalog/txt/Nice_Try.html)
+
+**Seriatim Interim 1**
+- [HTML](/catalog/txt/SeriatimInterim_1.html)
