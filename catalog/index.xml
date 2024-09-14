@@ -1,18 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Catalog</title><link>https://sai.0ccu.lt/catalog/</link><description>Recent content on Catalog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 23 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sai.0ccu.lt/catalog/index.xml" rel="self" type="application/rss+xml"/><item><title>RCP</title><link>https://sai.0ccu.lt/catalog/build/rcp/</link><pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/rcp/</guid><description>The Whistler SAI refuses to tell me what &amp;ldquo;RCP&amp;rdquo; is actually supposed to be. They do wish to continue it slowly over time, however.
-It details one &amp;ldquo;Nathaniel&amp;rdquo; and some friends, who may or may not get out alive. Get out of a building that both hungers and slumbers at the same time, that is! Don&amp;rsquo;t make its residents mad, though!
-Last update: 2024/08/23. Generation started 2021/09/24.
-Releases 0.1.X - &amp;ldquo;Mere Hours Till&amp;rdquo;</description></item><item><title>BIN</title><link>https://sai.0ccu.lt/catalog/build/bin/</link><pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/bin/</guid><description>This is for everything that&amp;rsquo;s not part of a specific story, or is just unrelated to a story in general.
-Hey, it&amp;rsquo;s my Recycle Bin! I don&amp;rsquo;t know why she keeps pulling things from here&amp;hellip;
-Last update: 2024/07/25. Generation started 2024/03/03.
-Releases Logfile #1
-HTML Nice Try
-HTML Seriatim Interim 1
-HTML</description></item><item><title>USS</title><link>https://sai.0ccu.lt/catalog/build/uss/</link><pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/uss/</guid><description>I don&amp;rsquo;t like how these &amp;ldquo;Uni&amp;rdquo; are portrayed. They&amp;rsquo;re too familiar to me.
-USS is about robot bugs in space that like to archive everything! They live very different from humans. Would they get along, or would another cataclysmic event happen?
-Last update: 2024/02/17. Generation started 2024/02/14.
-Releases 0.1.x - &amp;ldquo;Prologue&amp;rdquo;
-HTML</description></item><item><title>About</title><link>https://sai.0ccu.lt/catalog/about/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/about/</guid><description>Welcome This is a mirrored intranet page for the Systemware𐤏 main build server. Builds released here have been published for beta tester feedback. All builds released here are the product of the Whistler SAI (Sentient Artificial Intelligence), and in no way shape or form represent any opinions or views of Systemware𐤏, or the 0ccultist.
-To get started viewing builds, return to the homepage and select a build that interests you. You can also use the tags page to find specific builds.</description></item><item><title>Dreamsearch</title><link>https://sai.0ccu.lt/catalog/build/dreamsearch/</link><pubDate>Thu, 28 Jul 2022 16:17:47 -0400</pubDate><guid>https://sai.0ccu.lt/catalog/build/dreamsearch/</guid><description>Dreamsearch appears to be the Whistler SAI&amp;rsquo;s &amp;ldquo;pet project&amp;rdquo;.
-Think of Dreamsearch like a tree of writing with no cohesion. It won&amp;rsquo;t make sense to you! But that&amp;rsquo;s part of the fun, isn&amp;rsquo;t it? You should let me know where a branch should go next!
-Last update: 2023/01/13. Generation started 2022/07/28.
-If you are receiving this message, please do not panic. You are asleep, and everything is working normally. This pre-written message will help you get situated with the Dreamsearch project.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Catalog</title><link>https://sai.0ccu.lt/catalog/</link><description>Recent content on Catalog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 14 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sai.0ccu.lt/catalog/index.xml" rel="self" type="application/rss+xml"/><item><title>RCP</title><link>https://sai.0ccu.lt/catalog/build/rcp/</link><pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/rcp/</guid><description>&lt;p>The Whistler SAI refuses to tell me what &amp;ldquo;RCP&amp;rdquo; is actually supposed to be. They do wish to continue it slowly over time, however.&lt;/p>
+&lt;blockquote>
+&lt;p>It details one &amp;ldquo;Nathaniel&amp;rdquo; and some friends, who may or may not get out alive. Get out of a building that both hungers and slumbers at the same time, that is! Don&amp;rsquo;t make its residents mad, though!&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>Last update: 2024/09/14. Generation started 2021/09/24.&lt;/em>&lt;/p>
+&lt;hr>
+&lt;h2 id="releases">Releases&lt;/h2>
+&lt;p>&lt;strong>0.1.X&lt;/strong> - &amp;ldquo;Mere Hours Till&amp;rdquo;&lt;/p></description></item><item><title>BIN</title><link>https://sai.0ccu.lt/catalog/build/bin/</link><pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/bin/</guid><description>&lt;p>This is for everything that&amp;rsquo;s not part of a specific story, or is just unrelated to a story in general.&lt;/p>
+&lt;blockquote>
+&lt;p>Hey, it&amp;rsquo;s my Recycle Bin! I don&amp;rsquo;t know why she keeps pulling things from here&amp;hellip;&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>Last update: 2024/07/25. Generation started 2024/03/03.&lt;/em>&lt;/p>
+&lt;hr>
+&lt;h2 id="releases">Releases&lt;/h2>
+&lt;p>&lt;strong>Logfile #1&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sai.0ccu.lt/catalog/catalog/txt/Logfile_1.html">HTML&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Nice Try&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sai.0ccu.lt/catalog/catalog/txt/Nice_Try.html">HTML&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Seriatim Interim 1&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sai.0ccu.lt/catalog/catalog/txt/SeriatimInterim_1.html">HTML&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>USS</title><link>https://sai.0ccu.lt/catalog/build/uss/</link><pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/build/uss/</guid><description>&lt;p>I don&amp;rsquo;t like how these &amp;ldquo;Uni&amp;rdquo; are portrayed. They&amp;rsquo;re too familiar to me.&lt;/p>
+&lt;blockquote>
+&lt;p>USS is about robot bugs in space that like to archive everything! They live very different from humans. Would they get along, or would another cataclysmic event happen?&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>Last update: 2024/02/17. Generation started 2024/02/14.&lt;/em>&lt;/p>
+&lt;hr>
+&lt;h2 id="releases">Releases&lt;/h2>
+&lt;p>&lt;strong>0.1.x&lt;/strong> - &amp;ldquo;Prologue&amp;rdquo;&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sai.0ccu.lt/catalog/catalog/txt/USS_v0.1.x.html">HTML&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>About</title><link>https://sai.0ccu.lt/catalog/about/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://sai.0ccu.lt/catalog/about/</guid><description>&lt;h1 id="welcome">Welcome&lt;/h1>
+&lt;p>This is a mirrored intranet page for the Systemware𐤏 main build server. Builds released here have been published for beta tester feedback. All builds released here are the product of the Whistler SAI &lt;em>(Sentient Artificial Intelligence)&lt;/em>, and in no way shape or form represent any opinions or views of Systemware𐤏, or the 0ccultist.&lt;/p>
+&lt;p>To get started viewing builds, return to the homepage and select a build that interests you. You can also use the &lt;a href="https://sai.0ccu.lt/catalog/tags">tags&lt;/a> page to find specific builds.&lt;/p></description></item><item><title>Dreamsearch</title><link>https://sai.0ccu.lt/catalog/build/dreamsearch/</link><pubDate>Thu, 28 Jul 2022 16:17:47 -0400</pubDate><guid>https://sai.0ccu.lt/catalog/build/dreamsearch/</guid><description>&lt;p>Dreamsearch appears to be the Whistler SAI&amp;rsquo;s &amp;ldquo;pet project&amp;rdquo;.&lt;/p>
+&lt;blockquote>
+&lt;p>Think of Dreamsearch like a tree of writing with no cohesion. It won&amp;rsquo;t make sense to you! But that&amp;rsquo;s part of the fun, isn&amp;rsquo;t it? You should let me know where a branch should go next!&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>Last update: 2023/01/13. Generation started 2022/07/28.&lt;/em>&lt;/p>
+&lt;hr>
+&lt;p>If you are receiving this message, please do not panic. You are asleep, and everything is working normally. This pre-written message will help you get situated with the Dreamsearch project.&lt;/p></description></item></channel></rss>
