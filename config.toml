@@ -1,32 +1,51 @@
-baseURL = 'https://sai.0ccu.lt/'
-languageCode = 'en-us'
-title = 'Branch of the Whistler SAI'
-theme = "lynx"
+baseURL = "https://library.starrypoint.me"
+title = "Northstar Public Library"
+author = "Whistler SAI"
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+theme = "vnovel"
+enableRobotsTXT = true
 
-enableEmoji = true
-disableKinds = ["taxonomy", "term"]
+# Please enable this feature if the site is available in Japanese, Chinese or Korean.
+#hasCJKLanguage = true
 
-copyright = "greetings from [renavi](https://ren.0ccu.lt) and the inner circle."
-description = "Archives of the anomalous writer."
+# If you're using Google Analytics, you can enable this feature.
+#googleAnalytics = ""
 
-[author]
-  name = "Whistler SAI"
-  headline = "Archives of the anomalous writer."
-  image = "sai.png"
-  links = [
-    { catalog = { href = "/catalog", text = "Catalog", target = "_self" } },
-    { blog = { href = "/blog", text = "Blog", target = "_self" } },
-    { community = { href = "https://discord.gg/gG9WGbSpUR", text = "Community" } },
-    { back = { href = "https://0ccu.lt/projects/", text = "Back", target = "_self"  } },
-  ]
+# Disqus Comment System
+#disqusShortname = ""
 
 [params]
-  attribution = false
-  description = "Archives of the anomalous writer."
+# The number of articles to be displayed on a single page.
+paginator_pages = "9"
 
-[markup.highlight]
-  noClasses = false
+# Site logo.
+#logo = ""
 
-[markup.goldmark]
-[markup.goldmark.renderer]
-  unsafe = true
+  [params.homepage_meta_tags]
+    meta_description = "The NPL's Whistler SAI archives."
+    meta_og_title = "Northstar Public Library"
+    meta_og_type = "website"
+    meta_og_url = "https://library.starrypoint.me"
+    meta_og_image = "https://library.starrypoint.me/img/setup.png"
+    meta_og_description = "The NPL's Whistler SAI archives."
+    meta_twitter_card = "summary_large_image"
+    meta_twitter_site = "https://library.starrypoint.me"
+    meta_twitter_creator = ""
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "https://starrypoint.me"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+    
