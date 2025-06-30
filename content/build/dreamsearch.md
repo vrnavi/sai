@@ -24,6 +24,6 @@ Once you have received this message, we will need you to send some mental feedba
 
 Before continuing, please verify that your instance ID is 13498.
 
-[[ ACKNOWLEDGE ]](https://ds.sai.0ccu.lt)
+[[ ACKNOWLEDGE ]](https://library.starrypoint.me/dreamsearch)
 
 [[ REQUEST CHANGES ]](https://discord.gg/gG9WGbSpUR)
